@@ -1,20 +1,17 @@
 // ts 공식문서에서 type 기능이 필요하기 전까지는
+
+import { InputHTMLAttributes } from "react";
+
 // interface 사용하길 권장함
 interface FormInputProps {
   name: string;
-  type: string;
-  placeholder: string;
-  required: boolean;
-  errors: string[];
+  errors?: string[];
 }
 
 export default function FormInput({
   name,
-  type,
-  placeholder,
-  required,
-  errors,
-}: FormInputProps) {
+  errors = [],
+}: FormInputProps & InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className="flex flex-col gap-2">
       <input
@@ -24,9 +21,6 @@ export default function FormInput({
          focus:ring-orange-500 border-none
          placeholder:text-neutral-400 pl-3"
         name={name}
-        type={type}
-        placeholder={placeholder}
-        required={required}
       />
       <span
         className="text-red-500 
@@ -36,7 +30,7 @@ export default function FormInput({
           <span
             key={index}
             className="text-red-500
-            font-medium"
+            font-medium pl-1"
           >
             {error}
           </span>
