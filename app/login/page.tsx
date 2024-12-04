@@ -1,14 +1,15 @@
 "use client";
 
-import FormInput from "../components/form-input";
-import FormButton from "../components/form-button";
+import FormInput from "../components/input";
+import FormButton from "../components/button";
 import SocialLogin from "../components/social-login";
 
 import { useFormState } from "react-dom";
-import handleForm from "./action";
+import login from "./action";
+import { PASSWORD_MIN_LENGTH } from "@/lib/constants";
 
 export default function LogIn() {
-  const [state, action] = useFormState(handleForm, {
+  const [state, action] = useFormState(login, {
     potato: 1,
   } as any);
 
@@ -25,6 +26,7 @@ export default function LogIn() {
           type="password"
           placeholder="Password"
           required
+          minLength={PASSWORD_MIN_LENGTH}
         />
         <FormButton text="Login" />
       </form>

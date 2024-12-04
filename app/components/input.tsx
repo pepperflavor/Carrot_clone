@@ -3,15 +3,17 @@
 import { InputHTMLAttributes } from "react";
 
 // interface 사용하길 권장함
-interface FormInputProps {
+interface InputProps {
   name: string;
   errors?: string[];
 }
 
-export default function FormInput({
+export default function Input({
   name,
   errors = [],
-}: FormInputProps & InputHTMLAttributes<HTMLInputElement>) {
+  ...rest
+}: InputProps & InputHTMLAttributes<HTMLInputElement>) {
+  console.log(rest);
   return (
     <div className="flex flex-col gap-2">
       <input
@@ -21,6 +23,7 @@ export default function FormInput({
          focus:ring-orange-500 border-none
          placeholder:text-neutral-400 pl-3"
         name={name}
+        {...rest}
       />
       <span
         className="text-red-500 
