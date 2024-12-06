@@ -1,8 +1,8 @@
 "use client";
 
-import FormInput from "../components/input";
-import FormButton from "../components/button";
-import SocialLogin from "../components/social-login";
+import Button from "@/components/button";
+import Input from "@/components/input";
+import SocialLogin from "@/components/social-login";
 
 import { useFormState } from "react-dom";
 import login from "./action";
@@ -20,15 +20,22 @@ export default function LogIn() {
         <h2 className="text-xl">Log in with email</h2>
       </div>
       <form action={action} className="flex flex-col gap-3">
-        <FormInput name="email" type="email" placeholder="Email" required />
-        <FormInput
+        <Input
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          errors={state?.fieldErrors.email}
+        />
+        <Input
           name="password"
           type="password"
           placeholder="Password"
           required
           minLength={PASSWORD_MIN_LENGTH}
+          errors={state?.fieldErrors.password}
         />
-        <FormButton text="Login" />
+        <Button text="Login" />
       </form>
       <SocialLogin />
     </div>
