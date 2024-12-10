@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@prisma/client": "^6.0.1",
     "next": "14.0.4",
+    "prisma": "^6.0.1",
     "react": "^18",
     "react-dom": "^18",
     "validator": "^13.12.0",
