@@ -9,10 +9,7 @@ import login from "./action";
 import { PASSWORD_MIN_LENGTH } from "@/lib/constants";
 
 export default function LogIn() {
-  const [state, action] = useFormState(login, {
-    potato: 1,
-  } as any);
-
+  const [state, action] = useFormState(login, null);
   return (
     <div className="flex flex-col gap-10 py-8 px-6">
       <div className="flex flex-col gap-2 *:font-medium">
@@ -25,7 +22,7 @@ export default function LogIn() {
           type="email"
           placeholder="Email"
           required
-          errors={state?.fieldErrors.email}
+          errors={state?.fieldErrors?.email}
         />
         <Input
           name="password"

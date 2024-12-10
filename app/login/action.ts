@@ -28,7 +28,7 @@ export default async function login(preState: any, formData: FormData) {
   } else {
     console.log(result.data);
   }
-  return {
-    errors: ["wrong password", "password too short"],
-  };
+  // return {
+  //   errors: ["wrong password", "password too short"],
+  // };
 }
