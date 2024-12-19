@@ -32,7 +32,7 @@ export async function smsVerifycation(
   // 페이지 첫 실행 구분
   if (!prevState.token) {
     const result = phoneSchema.safeParse(phone);
-    console.log(result.error?.flatten());
+
     if (!result.success) {
       return {
         token: false,

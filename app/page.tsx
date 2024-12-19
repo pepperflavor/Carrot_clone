@@ -11,7 +11,7 @@ export default function Home() {
         className="my-auto *:font-medium flex flex-col
       items-center gap-2"
       >
-        <span className="text-9xl">🥕🥕</span>
+        <span className="text-9xl">🥕</span>
         <h1 className="text-4xl">당근</h1>
         <h2 className="text-2xl">당근 마켓에 어서오세요</h2>
       </div>
