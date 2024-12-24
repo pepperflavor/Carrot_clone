@@ -23,9 +23,7 @@ export async function smsVerifycation(
   prevState: ActionState,
   formData: FormData
 ) {
-  // 데이터 타입 변경되는지 확인
-  // console.log(typeof formData.get("token"));
-  // console.log(typeof tokenSchema.parse(formData.get("token")));
+
 
   const phone = formData.get("phone");
   const token = formData.get("token");

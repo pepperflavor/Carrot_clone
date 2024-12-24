@@ -8,7 +8,7 @@ async function test() {
       id: 1,
     },
   });
-  console.log(token);
+
 }
 
 test();
