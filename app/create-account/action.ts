@@ -100,13 +100,11 @@ export default async function createAccount(preState: any, formData: FormData) {
   const result = await formSchema.safeParseAsync(data);
 
   if (!result.success) {
-
     return result.error.flatten();
   } else {
     // 두번째 인수 = 알고리즘을 돌릴 횟수
     // hash : promise임
     const hashedPassword = await bcrypt.hash(result.data.password, 12);
-
 
     const user = await db.user.create({
       data: {
