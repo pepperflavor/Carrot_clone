@@ -89,7 +89,7 @@ export default async function ProductDetail({
       </div>
       <div className="fixed w-full bottom-0 left-0 p-5 pb-10 bg-neutral-800 flex justify-between items-center">
         <span className="font-semibold text-lg">
-          {formatToWon(product.price)}
+          {formatToWon(product.price)} 원
         </span>
         {isOwner ? (
           <button
