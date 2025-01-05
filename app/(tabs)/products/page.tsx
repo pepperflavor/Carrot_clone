@@ -1,11 +1,13 @@
 import ListProduct from "@/components/list-product";
+import ProductList from "@/components/product-list";
 import db from "@/lib/db";
 import { PlusIcon } from "@heroicons/react/24/solid";
+import { Prisma } from "@prisma/client";
 import Link from "next/link";
 
-async function getProduct() {
+async function getInitialProducts() {
   // await new Promise((resolve) => setTimeout(resolve, 10000));
-  const product = await db.product.findMany({
+  const products = await db.product.findMany({
     select: {
       title: true,
       price: true,
@@ -13,25 +15,29 @@ async function getProduct() {
       photo: true,
       id: true,
     },
+    take: 1,
+    orderBy: {
+      created_at: "desc",
+    },
   });
-  return product;
+  return products;
 }
 
-export default async function Product() {
-  const products = await getProduct();
+export type InitialProducts = Prisma.PromiseReturnType<
+  typeof getInitialProducts
+>;
+
+export default async function Products() {
+  const initialProducts = await getInitialProducts();
   return (
-    <div className="p-5 flex flex-col gap-5">
-      <h1 className="text-white text-4xl">
-        {products.map((product) => (
-          <ListProduct key={product.id} {...product} />
-        ))}
-        <Link
-          href={"products/add"}
-          className="bg-orange-500 flex items-center justify-center rounded-full size-16 fixed bottom-24 right-8 text-white transition-colors hover:bg-orange-400"
-        >
-          <PlusIcon className="size-10" />
-        </Link>
-      </h1>
+    <div>
+      <ProductList initialProducts={initialProducts} />
+      {/* <Link
+        href={"products/add"}
+        className="bg-orange-500 flex items-center justify-center rounded-full size-16 fixed bottom-24 right-8 text-white transition-colors hover:bg-orange-400"
+      >
+        <PlusIcon className="size-10" />
+      </Link> */}
     </div>
   );
 }
