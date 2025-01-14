@@ -56,13 +56,17 @@ export async function GET(request : NextRequest){
     
         await saveSession(newUser.id)
         return redirect("/profile")
-}
+    }
 
 }
+
+
+
+
 
 // 세션관련 패키징 V
-// 일반 이메일가입유저 닉네임 중복 확인
-// 유저 이메일 받은걸로 이메일받아서 저장하기
+// 일반 이메일가입유저 닉네임 중복 확인 V
+// 유저 이메일 받은걸로 이메일받아서 저장하기 V
 // fetch requst / response 나누기 request 보내는 곳 response json으로 바꾸는 걸 function으로 만들기
 
 
