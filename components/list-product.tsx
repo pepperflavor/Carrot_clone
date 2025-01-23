@@ -1,3 +1,4 @@
+import { InitialProducts } from "@/app/(tabs)/products/page";
 import { formatToTimeAgo, formatToWon } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,15 +19,9 @@ export default function ListProduct({
   id,
 }: ListProductProps) {
   return (
-    <Link href={`products/${id}`} className="flex gap-5 p-5">
+    <Link href={`products/${id}`} className="flex gap-5">
       <div className="relative size-28 rounded-md overflow-hidden">
-        <Image
-          className="object-cover"
-          src={photo}
-          alt={title}
-          quality={100}
-          fill
-        />
+        <Image className="object-cover" src={photo} alt={title} fill />
       </div>
       <div className="flex flex-col gap-1 *:text-white">
         <span className="text-lg">{title}</span>

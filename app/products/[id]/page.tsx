@@ -53,6 +53,7 @@ export default async function ProductDetail({
 
   // 외부에서 productID를 마음대로 문자로 바꿔서 접근 못하게
   const id = Number(params.id);
+  
   if (isNaN(id)) {
     return notFound();
   }
